@@ -1,0 +1,73 @@
+// import { NextResponse } from "next/server";
+
+// export async function middleware(request) {
+//   const path = request.nextUrl.pathname;
+//   const token = request.cookies.get("token")?.value || "";
+//   const [headerB64, payloadB64, signatureB64] = token.split(".");
+
+//   // Decode the base64-encoded payload
+//   console.log("444")
+//   if (payloadB64) {
+//     const payloadJson = atob(payloadB64);
+
+//     // Parse the decoded payload as JSON to get the claims
+//     const payload = JSON.parse(payloadJson);
+//     console.log(payload)
+//     if (payload.role === 'user') {
+//         console.log(path)
+//      const isPublicPath =
+//         path === "/login" ||
+//         path === "/signup" ||
+//         path === "/admin" ||
+//         path === "/adminlogin" ||
+//         path === "/admin/:path*";
+//       if (isPublicPath) {
+//         console.log("use1")
+
+//         return NextResponse.redirect(new URL("/", request.url));
+//       } else {
+//         console.log("11")
+//         return NextResponse.redirect(new URL(path, request.url));
+//       }
+//     }
+//     if (payload.role === "admin") {
+//         console.log("aa")
+
+//      const isPublicPath =
+//         path === "/login" ||
+//         "/events" ||
+//         "/gallery" ||
+//         "/adminlogin" ||
+//         "/gallery" ||
+//         "/contact" ||
+//         "/about" ||
+//         "invitation";
+
+//         if (isPublicPath && token) {
+//             console.log("ua1")
+
+//             return NextResponse.redirect(new URL("/admin", request.url));
+//           } else {
+//             return NextResponse.redirect(new URL("/adminlogin", request.url));
+//           }
+//     }
+// //   } else {
+//     // console.log("22")
+//     // return NextResponse.redirect(new URL("/login", request.url));
+//   }
+// }
+// // See "Matching Paths" below to learn more
+// export const config = {
+//   matcher: [
+//     "/login",
+//     "/signup",
+//     "/admin",
+//     "/gallery",
+//     "/invitation",
+//     "/events",
+//     "/about",
+//     "/contact",
+//     "/adminLogin",
+//     "/admin/:path*",
+//   ],
+// };
